@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adilu Electronics & Computer Services</title>
+    <style>
+        :root {
+            --primary-color: #87CEEB; /* Sky blue */
+            --secondary-color: #FFFFFF; /* White */
+            --accent-color: #1E90FF; /* Dodger blue */
+            --text-color: #333333;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: #f5f9fa;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+        }
+        
+        nav ul li a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(135, 206, 235, 0.8), rgba(135, 206, 235, 0.6)), url('https://images.unsplash.com/photo-1518770660439-4636190af475');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--secondary-color);
+        }
+        
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--secondary-color);
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #187bcd;
+        }
+        
+        .services {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .product-card {
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-img {
+            height: 200px;
+            background-color: #eee;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+        }
+        
+        .product-info h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        
+        .product-info .price {
+            font-weight: bold;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-column ul li a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+        
+        .footer-column ul li a:hover {
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .privacy-policy {
+            background-color: var(--secondary-color);
+            padding: 4rem 0;
+        }
+        
+        .privacy-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .privacy-content h2 {
+            color: var(--primary-color);
+        }
+        
+        .payment-section {
+            padding: 4rem 0;
+            background-color: #f0f8ff;
+        }
+        
+        .payment-methods {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .payment-method {
+            background-color: var(--secondary-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 200px;
+        }
+        
+        .payment-method i {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info i {
+            margin-right: 1rem;
+            color: var(--accent-color);
+        }
+        
+        /* NEW ADDITIONS */
+        .contact-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+        
+        .brand-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .brand-btn {
+            padding: 8px 15px;
+            background: var(--secondary-color);
+            border: 1px solid var(--primary-color);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .brand-btn:hover, .brand-btn.active {
+            background: var(--primary-color);
+            color: var(--secondary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 1rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">Adilu Electronics</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#software-services">Software</a></li>
+                    <li><a href="#payments">Payments</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <div>
+                <h1>Your Trusted Electronics & Computer Partner</h1>
+                <p>Quality devices, reliable services, and exceptional customer support</p>
+                <a href="#products" class="btn">Explore Products</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ========== SMARTPHONES SECTION ========== -->
+    <section class="services" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Products</h2>
+                <p>Discover the latest electronic devices and accessories</p>
+            </div>
+            
+            <h3 style="text-align: center; color: var(--primary-color); margin-top: 2rem;">Smartphones</h3>
+            <div class="brand-filter">
+                <button class="brand-btn active" onclick="filterProducts('all-phones')">All Phones</button>
+                <button class="brand-btn" onclick="filterProducts('iphone')">iPhone</button>
+                <button class="brand-btn" onclick="filterProducts('samsung')">Samsung</button>
+            </div>
+            
+            <div class="products-grid">
+                <!-- iPhone 15 Pro Max -->
+                <div class="product-card" data-category="iphone">
+                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1603921326210-6edd2d60ca68');"></div>
+                    <div class="product-info">
+                        <h3>iPhone 15 Pro Max</h3>
+                        <p>A17 Pro chip, Titanium design, 48MP camera</p>
+                        <div class="price">UGX 5,500,000</div>
+                        <a href="tel:+256782960872" class="btn">Call to Order</a>
+                    </div>
+                </div>
+                
+                <!-- iPhone 15 -->
+                <div class="product-card" data-category="iphone">
+                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1695048137565-7f9c2863b17a');"></div>
+                    <div class="product-info">
+                        <h3>iPhone 15</h3>
+                        <p>Dynamic Island, 48MP Main camera, A16 Bionic</p>
+                        <div class="price">UGX 4,200,000</div>
+                        <a href="tel:+256782960872" class="btn">Call to Order</a>
+                    </div>
+                </div>
+                
+                <!-- Samsung Galaxy S23 Ultra -->
+                <div class="product-card" data-category="samsung">
+                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1685378510926-08218892d8a7');"></div>
+                    <div class="product-info">
+                        <h3>Samsung Galaxy S23 Ultra</h3>
+                        <p>200MP camera, S Pen, Snapdragon 8 Gen 2</p>
+                        <div class="price">UGX 5,100,000</div>
+                        <a href="tel:+256782960872" class="btn">Call to Order</a>
+                    </div>
+                </div>
+                
+                <!-- Samsung Galaxy Z Fold 5 -->
+                <div class="product-card" data-category="samsung">
+                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1678286770686-5dcdce01e30a');"></div>
+                    <div class="product-info">
+                        <h3>Samsung Galaxy Z Fold 5</h3>
+                        <p>Foldable display, Multi-window multitasking</p>
+                        <div class="price">UGX 6,800,000</div>
+                        <a href="tel:+256782960872" class="btn">Call to Order</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ========== LAPTOPS & TABLETS SECTION ========== -->
+            <h3 style="text-align: center; color: var(--primary-color); margin-top: 4rem;">Laptops & Tablets</h3>
+            <div class="brand-filter">
+                <button class="brand-btn active" onclick="filterProducts('all-laptops')">All Laptops</button>
+                <button class="brand-btn" onclick="filterProducts('hp')">HP</button>
+                <button class="brand-btn" onclick="filterProducts('dell')">Dell</button>
+                <button class="brand-btn" onclick="filterProducts('lenovo')">Lenovo</button>
+                <button class="brand-btn" onclick="filterProducts('apple')">Apple</button>
+            </div>
+            
+            <div class="products-grid">
+                <!-- HP Spectre x360 -->
+                <div class="product-card" data-category="hp">
+                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1611186871348-b1ce696e52c9');"></div>
+                    <div class="product-info">
+                        <h3>HP Spectre x360</h3>
+                        <p>13.5" OLED, Intel Core i7, 16GB RAM</p>
+                        <div class="price">UGX 4,800,000</div>
+                        <a href="tel:+256782960872" class="btn">Call to Order</a>
+                    </div>
+                </div>
+                
+                <!-- Dell XPS 15 -->
+                <div class="product-card" data-category="dell">
+                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1593642632823-8f785ba67e45');"></div>
+                    <div class="product-info">
+                        <h3>Dell XPS 15</h3>
+                        <p>15.6" 4K, Intel Core i9, 32GB RAM</p>
+                        <div class="price">UGX 6,200,000</div>
+                        <a href="tel:+256782960872" class="btn">Call to Order</a>
+                    </div>
+                </div>
+                
+                <!-- Lenovo ThinkPad X1 Carbon -->
+                <div class="product-card" data-category="lenovo">
+                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1618410320923-5d1a5e30d58f');"></div>
+                    <div class="product-info">
+                        <h3>Lenovo ThinkPad X1 Carbon</h3>
+                        <p>14" FHD, Intel Core i7, 16GB RAM</p>
+                        <div class="price">UGX 5,500,000</div>
+                        <a href="tel:+256782960872" class="btn">Call to Order</a>
+                    </div>
+                </div>
+                
+                <!-- MacBook Pro 16" M2 Max -->
+                <div class="product-card" data-category="apple">
+                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1611186871348-b1ce696e52c9');"></div>
+                    <div class="product-info">
+                        <h3>MacBook Pro 16" M2 Max</h3>
+                        <p>16.2", M2 Max chip, 32GB RAM, 1TB SSD</p>
+                        <div class="price">UGX 12,500,000</div>
+                        <a href="tel:+256782960872" class="btn">Call to Order</a>
+                    </div>
+                </div>
+                
+                <!-- iPad Pro 12.9" (M2) -->
+                <div class="product-card" data-category="apple">
+                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0');"></div>
+                    <div class="product-info">
+                        <h3>iPad Pro 12.9" (M2)</h3>
+                        <p>Liquid Retina XDR display, 1TB storage</p>
+                        <div class="price">UGX 4,900,000</div>
+                        <a href="tel:+256782960872" class="btn">Call to Order</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ========== SOFTWARE SERVICES SECTION ========== -->
+    <section class="services" id="software-services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Software Solutions</h2>
+                <p>Professional software for engineering, design and development</p>
+            </div>
+            
+            <div class="products-grid">
+                <!-- AutoCAD -->
+                <div class="product-card">
+                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1639762681057-408e52192e55');"></div>
+                    <div class="product-info">
+                        <h3>AutoCAD</h3>
+                        <p>2D and 3D CAD design software (Latest version)</p>
+                        <div class="price">UGX 1,800,000/year</div>
+                        <a href="mailto:adilgeriga@gmail.com?subject=AutoCAD Purchase" class="btn">Email Inquiry</a>
+                    </div>
+                </div>
+                
+                <!-- Windows 11 Pro -->
+                <div class="product-card">
+                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1551650975-87deedd944c3');"></div>
+                    <div class="product-info">
+                        <h3>Windows 11 Pro</h3>
+                        <p>Genuine license with installation support</p>
+                        <div class="price">UGX 350,000</div>
+                        <a href="https://wa.me/256782960872?text=I'm%20interested%20in%20Windows%2011%20Pro" class="btn">WhatsApp</a>
+                    </div>
+                </div>
+                
+                <!-- MATLAB -->
+                <div class="product-card">
+                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1610563166150-b34df4f3bcd6');"></div>
+                    <div class="product-info">
+                        <h3>MATLAB</h3>
+                        <p>Numerical computing environment (Student & Professional)</p>
+                        <div class="price">From UGX 2,500,000</div>
+                        <a href="mailto:adilgeriga@gmail.com?subject=MATLAB Purchase" class="btn">Email Inquiry</a>
+                    </div>
+                </div>
+                
+                <!-- NI Multisim -->
+                <div class="product-card">
+                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1581093450022-6cdd5d57a1a0');"></div>
+                    <div class="product-info">
+                        <h3>NI Multisim</h3>
+                        <p>Circuit design and simulation software</p>
+                        <div class="price">UGX 1,200,000</div>
+                        <a href="https://wa.me/256782960872?text=I'm%20interested%20in%20NI%20Multisim" class="btn">WhatsApp</a>
+                    </div>
+                </div>
+                
+                <!-- Xilinx Vivado -->
+                <div class="product-card">
+                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1581092918056-0c4c3acd3789');"></div>
+                    <div class="product-info">
+                        <h3>Xilinx Vivado</h3>
+                        <p>FPGA design suite (WebPACK & Full versions)</p>
+                        <div class="price">From UGX 3,000,000</div>
+                        <a href="mailto:adilgeriga@gmail.com?subject=Xilinx Vivado Purchase" class="btn">Email Inquiry</a>
+                    </div>
+                </div>
+                
+                <!-- Keil MDK -->
+                <div class="product-card">
+                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1551269901-5c5e14c25df7');"></div>
+                    <div class="product-info">
+                        <h3>Keil MDK</h3>
+                        <p>Complete software development for ARM</p>
+                        <div class="price">UGX 1,500,000</div>
+                        <a href="https://wa.me/256782960872?text=I'm%20interested%20in%20Keil%20MDK" class="btn">WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ========== PAYMENT SECTION ========== -->
+    <section class="payment-section" id="payments">
+        <div class="container">
+            <div class="section-title">
+                <h2>Payment Options</h2>
+                <p>Secure and convenient payment methods</p>
+            </div>
+            
+            <div class="payment-methods">
+                <div class="payment-method">
+                    <i class="fas fa-credit-card"></i>
+                    <h3>Credit Card</h3>
+                    <p>Visa, Mastercard, American Express</p>
+                    <a href="#" class="btn">Pay Now</a>
+                </div>
+                
+                <div class="payment-method">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Mobile Money</h3>
+                    <p>MTN, Airtel, Africell</p>
+                    <a href="#" class="btn">Pay Now</a>
+                </div>
+                
+                <div class="payment-method">
+                    <i class="fas fa-university"></i>
+                    <h3>Bank Transfer</h3>
+                    <p>Direct to Stanbic Bank Uganda</p>
+                    <a href="#" class="btn">Pay Now</a>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <p><strong>Bank Details:</strong> Stanbic Bank Uganda Limited</p>
+                <p><strong>Account Name:</strong> MUHAMAD ADILU GIRIGA</p>
+                <p><strong>Account Number:</strong> 9030021527199</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ========== PRIVACY POLICY SECTION ========== -->
+    <section class="privacy-policy">
+        <div class="container privacy-content">
+            <h2>Data Protection Policy</h2>
+            <p>At Adilu Electronics and Computer Services, we take your privacy seriously. We are committed to protecting your personal information and ensuring its confidentiality.</p>
+            
+            <h3>Information We Collect</h3>
+            <p>We may collect personal information such as your name, email address, phone number, and payment details when you make a purchase or request our services.</p>
+            
+            <h3>How We Use Your Information</h3>
+            <p>Your information is used to process transactions, provide customer support, and improve our services. We do not share your information with third parties without your consent.</p>
+            
+            <h3>Security Measures</h3>
+            <p>We implement appropriate security measures to protect against unauthorized access, alteration, or destruction of your personal information.</p>
+            
+            <h3>Your Rights</h3>
+            <p>You have the right to access, correct, or delete your personal information at any time by contacting us.</p>
+        </div>
+    </section>
+    
+    <!-- ========== FOOTER (CONTACT SECTION) ========== -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Adilu Electronics</h3>
+                    <p>Your trusted partner for all electronics and computer needs. Quality products and services since 2010.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#software-services">Software</a></li>
+                        <li><a href="#payments">Payments</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us Instantly</h3>
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:adilgeriga@gmail.com" class="contact-link">adilgeriga@gmail.com</a>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:+256782960872" class="contact-link">+256 782 960 872</a>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fab fa-whatsapp"></i>
+                        <a href="https://wa.me/256782960872" class="contact-link">WhatsApp Chat</a>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Kampala, Uganda</span>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Business Hours</h3>
+                    <p>Monday - Friday: 8:30 AM - 6:00 PM</p>
+                    <p>Saturday: 9:00 AM - 4:00 PM</p>
+                    <p>Sunday: Closed</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Adilu Electronics and Computer Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== FILTERING FUNCTION FOR PRODUCTS ========== -->
+    <script>
+        function filterProducts(category) {
+            // Remove active class from all buttons in the current filter group
+            const currentFilterGroup = event.target.parentElement;
+            currentFilterGroup.querySelectorAll('.brand-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+            
+            // Determine which product grid we're filtering
+            const productGrid = event.target.closest('.container').querySelector('.products-grid');
+            const allProducts = productGrid.querySelectorAll('.product-card');
+            
+            allProducts.forEach(product => {
+                if(category.includes('all')) {
+                    product.style.display = 'block';
+                } else {
+                    if(product.dataset.category === category) {
+                        product.style.display = 'block';
+                    } else {
+                        product.style.display = 'none';
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
